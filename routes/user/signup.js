@@ -1,5 +1,4 @@
-//자체회원가입
-//jwt 필요 없음
+
 var express = require('express');
 var router = express.Router();
 const crypto = require('crypto-promise');
@@ -11,7 +10,7 @@ const db = require('../../module/pool');
 
 router.post('/', async (req, res) => {
     const selectUserQuery = 'SELECT * FROM user WHERE email = ?'
-    console.log("jisoo여기까지는")
+    //console.log("여기까지는")
     const selectUserResult = await db.queryParam_Parse(selectUserQuery, [req.body.email]);
     const signupQuery = 'INSERT INTO user (email, password, salt, name) VALUES (?, ?, ?, ?)';
     if(selectUserResult.length == 0) {  
