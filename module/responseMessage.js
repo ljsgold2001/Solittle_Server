@@ -60,6 +60,10 @@ module.exports = {//서버들끼리의 원활한 소통을 위해서 응답메�
     UNDEFINED_EMAIL: "저장된 이메일이 아닙니다.",
     UPDATE_PW_FAIL:'update password fail',
 
+    //solittle
+    GET_MAIN_SUCCESS : "메인화면 로드 성공",
+    GET_MAIN_ERROR : "메인화면 로드 실패"
+
 
 
 };

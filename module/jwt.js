@@ -4,12 +4,7 @@ const secretOrPrivateKey = "jwtSecretKey!";
 const options = {
     algorithm: "HS256",
     expiresIn: "1h",//1주
-    issuer: "jungah"
-};
-const refreshOptions = {//Refreshoptions????????
-    algorithm: "HS256",
-    expiresIn: "2h",//2주
-    issuer: "jungah"
+    issuer: "jisoo"
 };
 
 module.exports = {
@@ -18,13 +13,13 @@ module.exports = {
             idx: user.userIdx,//userIdx를 의미
         };
 
-        const result = {
-            token: jwt.sign(payload, secretOrPrivateKey, options),
-            refreshToken: randtoken.uid(256)//refresh token까지 같이 준다.-->발급 받은 refresh token은 반드시 db에 저장해야 된다!!!!!
+        const result = { // result는 토큰과 리프레시 토큰이 함깨 담겨있다. 이는 반드시 디비에 저장해야한다.
+            token: jwt.sign(payload, secretOrPrivateKey, options), //
+            refreshToken: randtoken.uid(256)
         };
         //refreshToken을 만들 때에도 다른 키를 쓰는게 좋다.
 
-        return result;
+        return result; // 리턴을 result해준다.
     },
 
     verify: (token) => {
