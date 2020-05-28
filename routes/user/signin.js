@@ -16,7 +16,7 @@ router.post('/', async(req, res) => {
         const selectUserQuery = 'SELECT * FROM user WHERE email = ?'
         const selectUserResult = await db.queryParam_Parse(selectUserQuery, [req.body.email]);
         if(selectUserResult.length == 0){
-            res.status(200).send(util.successFalse(statusCode.OK, resMessage.NO_USER));
+            res.status(200).send(util.successFalse(statusCode.OK, resMessage.CANNOT_FIND_USER));
         }else{
             const salt = selectUserResult[0].salt;
             const hashedEnterPw = await crypto.pbkdf2(req.body.password.toString(),salt,1000, 32, 'SHA512');//현재 사용자가 로그인을 위해 입력한 pw
@@ -44,7 +44,7 @@ router.post('/', async(req, res) => {
                     res.status(200).send(util.successTrue(statusCode.OK, resMessage.LOGIN_SUCCESS, token_result)); //token, refreshtoken 보내준다.
                 }
             }else{//사용자가 입력한 비밀번호와 회원가입시의 비밀번호가 다를경우
-                res.status(200).send(util.successFalse(statusCode.OK, resMessage.MISS_MATCH_PW));
+                res.status(200).send(util.successFalse(statusCode.OK, resMessage.NOT_CORRECT_PWD));
             }
         }
     }

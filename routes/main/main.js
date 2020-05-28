@@ -12,10 +12,10 @@ router.get('/', authUtil.isLoggedin, async(req, res)=>{
     const getCategoryResult = await db.queryParam_None(getCategoryQuery);
 
     if(getCategoryResult.length==0){
-        res.status(200).send(util.successFalse(statusCode.DB_ERROR,resMessage.DB_ERROR));
+        res.status(200).send(util.successFalse(statusCode.DB_ERROR,resMessage.GET_MAIN_ERROR));
     }
     else{
-        res.status(200).send(util.successTrue(statusCode.OK, resMessage.GET_MAIN_SUCCESS));
+        res.status(200).send(util.successTrue(statusCode.OK, resMessage.GET_MAIN_SUCCESS,getCategoryResult));
         for(i = 0;  i<getCategoryResult.length;  i++){
             console.log(getCategoryResult[i]);
         }
