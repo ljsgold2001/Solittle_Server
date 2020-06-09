@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
         }
     }else {
         console.log("중복된 email이 있습니다.");
-        res.status(200).send(util.successFalse(statusCode.OK, resMessage.SIGNUP_FAIL));
+        res.status(200).send(util.successFalse(statusCode.BAD_REQUEST, resMessage.SIGNUP_FAIL));
     }
 });
 

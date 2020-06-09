@@ -61,11 +61,27 @@ module.exports = {//서버들끼리의 원활한 소통을 위해서 응답메�
     UPDATE_PW_FAIL:'update password fail',
 
     //solittle
+
+    //main
     GET_MAIN_SUCCESS : "메인화면 로드 성공",
     GET_MAIN_ERROR : "메인화면 로드 실패",
+
+    //signin
     NOT_CORRECT_PWD : "비밀번호가 일치하지 않습니다.",
     CANNOT_FIND_USER : "유저정보가 없습니다.",
-    
+
+    //level
+    GET_LEVEL_SUCCESS :"LEVEL 로드 성공",
+    GET_LEVEL_FAIL :"LEVEL 로드 실패",
+
+
+    //quiz
+    GET_WORD_SUCCESS :"WORD 로드 성공",
+    GET_WORD_FAIL : "WORD 로드 실패",
+
+    //myvoca
+    INSERT_WORD_MYVOCA_SUCCESS :"단어장 INSERT 성공",
+    INSERT_WORD_MYVOCA_FAIL :"단어장 INSERT 실패",
 
     
 
