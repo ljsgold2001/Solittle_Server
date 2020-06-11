@@ -82,6 +82,12 @@ module.exports = {//서버들끼리의 원활한 소통을 위해서 응답메�
     //myvoca
     INSERT_WORD_MYVOCA_SUCCESS :"단어장 INSERT 성공",
     INSERT_WORD_MYVOCA_FAIL :"단어장 INSERT 실패",
+    WORD_IS_NOT_IN_DB : "VOCA_IDX와 REQUEST 불일치",
+    ALREAY_EXIST_IN_MYVOCA : "MYVOCA에 이미 존재합니다.",
+    GET_MYVOCA_FAIL :"MYVOCA 로드 실패",
+    GET_MYVOCA_SUCCESS :"MYVOCA 로드 성공"
+
+
 
     
 

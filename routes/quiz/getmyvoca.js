@@ -9,13 +9,15 @@ const authUtil = require("../../module/authUtils");
 
 
 //myvoca 로드
-router.get('/', authUtil.isLoggedin, async(req, res)=>{
+router.get('/:category_name', authUtil.isLoggedin, async(req, res)=>{
     
+    const category_name = req.params.category_name;
     const useridx = req.decoded.idx;
+    console.log(useridx)
+    console.log(category_name)
 
-    const getMyVocaQuery = 'SELECT  * FROM myvoca WHERE userIdx =?';
-
-    const getMyVocaResult = await db.queryParam_Arr(getMyVocaQuery , [useridx]);
+    const getMyVocaQuery = 'SELECT  * FROM myvoca WHERE userIdx =? and category_name =?';
+    const getMyVocaResult = await db.queryParam_Arr(getMyVocaQuery , [useridx,category_name]);
 
     console.log(getMyVocaResult)
 
@@ -25,9 +27,9 @@ router.get('/', authUtil.isLoggedin, async(req, res)=>{
     }
     else{// WORD GET 성공시
         res.status(200).send(util.successTrue(statusCode.OK, resMessage.GET_MYVOCA_SUCCESS,getMyVocaResult));
-        //for(i = 0;  i<getMyVocaResult.length;  i++){
+        // for(i = 0;  i<getMyVocaResult.length;  i++){
         //    console.log(getMyVocaResult[i]);
-        //}
+        // }
         
     }
     
@@ -36,4 +38,3 @@ router.get('/', authUtil.isLoggedin, async(req, res)=>{
 });
     
 module.exports = router;
-
